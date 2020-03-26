@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <fieldset>
+            <form action="/" method="post">
+                <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required />
+                <input type="submit" class="ghost-button" value="Get Weather" />
+            </form>
+            <div>
+                <% if(weather !== null){ %>
+                    <p>
+                        <%= weather %>
+                    </p>
+                    <% } %>
+                        <% if(error !== null){ %>
+                            <p>
+                                <%= error %>
+                            </p>
+                            <% } %>
+            </div>
+            <!--<div style="text-align:center">
+                <a href="/login"><button class="ghost-button">Login Page</button></a>
+            </div>-->
+            <div style="text-align:center">
+                <a href="/chatbot">
+                    <button class="ghost-button">To Chatbot Page</button>
+                </a>
+            </div>
+            <div style="text-align:center">
+                <button id="myButton" class="ghost-button">Js button</button>
+            </div>
+        </fieldset>
+    </div>
+    <script src="/js/client.js" type="text/javascript"></script>
+</body>
+
+</html>
