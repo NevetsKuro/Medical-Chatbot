@@ -1,5 +1,5 @@
 # simple-nodejs-weather-app
-Simple Node.js Command Line Weather Application
+Simple Node.js Command Line Chatbot Application
 
 * To Run project *
  - npm install
