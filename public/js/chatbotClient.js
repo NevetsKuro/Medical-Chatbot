@@ -39,7 +39,7 @@ class Node {
 
 class BinarySearchTree {
     constructor() {
-        var MedTree = new Node("Are you Male or Female?");
+        /*var MedTree = new Node("Are you Male or Female?");
         MedTree.left = new Node("Do you lift heavy object like weights?");
         MedTree.left.left = new Node("Do you go to the gym?");
         MedTree.left.right = new Node("Do you go for jogging?");
@@ -56,8 +56,52 @@ class BinarySearchTree {
         MedTree.right.left.left.right = new Node("Here are some websites to improve uar skills and getter a higher degree .... .com");
         MedTree.right.left.right = new Node("Here are some courses to improve uar skills and getter a higher degree .... .com");
         MedTree.right.right.left = new Node("Here are some websites to improve uar skills and getter a higher degree .... .com");
-        MedTree.right.right.right = new Node("There are lots of field where your hidden talent can be useful?");
+        MedTree.right.right.right = new Node("There are lots of field where your hidden talent can be useful?");*/
         // root of a binary seach tree 
+        var MedTree = new Node("Do you feel pain/fatigue in your body?");
+
+        MedTree.left = new Node("Do you have/feel fever?");
+        MedTree.left.left = new Node("Do you have/feel headache?");
+        MedTree.left.right = new Node("Do you have/feel swelling?");
+        MedTree.left.left.left = new Node("Do you have/feel Breathing Problem?");
+        MedTree.left.left.right = new Node("Do you have/feel Weight loss?");
+        MedTree.left.right.left = new Node("Do you have/feel Stiffness?");
+        MedTree.left.right.right = new Node("NADA");
+        MedTree.left.left.right.left = new Node("You might have back Back Pain. /n Physical discomfort occurring anywhere on the spine or back, ranging from mild to disabling.");
+        MedTree.left.left.left.left = new Node("Have you started vomiting in the pass weeks?");
+        MedTree.left.left.left.right = new Node("NADA");
+        MedTree.left.left.left.left.left = new Node("Do you have/feel swelling?");
+        MedTree.left.left.left.left.right = new Node("Do you have/feel cough?");
+        MedTree.left.left.left.left.left.left = new Node("Do you have/feel Pain in your joints or muscles pain or skin rash?");
+        MedTree.left.left.left.left.left.right = new Node("NADA");
+        MedTree.left.left.left.left.right.left = new Node("You might have Cold and flu disease i.e. A common viral infection of the nose and throat.");
+        MedTree.left.left.left.left.right.right = new Node("NADA");
+        MedTree.left.left.left.left.left.left.left = new Node("You might have Dengue i.e. A mosquito-borne viral disease occurring in tropical and subtropical areas.");
+        MedTree.left.right.left = new Node("Do you have/feel Stiffness?");
+        MedTree.left.right.left.left = new Node("Do you have/feel pain in your joints?");
+        MedTree.left.right.left.left.left = new Node("Do you have/feel bruises?");
+        MedTree.left.right.left.left.left.left = new Node("You might have sprains in your body i.e. A stretching or tearing of ligaments, the fibrous tissue that connects bones and joints.");
+        MedTree.left.right.left.left.left.right = new Node("you might have osteoarthritis i.e. A type of arthritis that occurs when flexible tissue at the ends of bones wears down.");
+        MedTree.left.right.left.left.right = new Node("Do you have/feel tiredness lately?");
+        MedTree.left.right.left.left.right.left = new Node("You have Knee problems such as knee pain which can eventually lead to arthritis, gout and infection");
+
+        MedTree.right = new Node("Do you have/feel cough?");
+        MedTree.right.left = new Node("You might have osteoporosis i.e. A condition in which bones become weak and brittle.");
+        MedTree.right.right = new Node("Do you have/feel skin rash?");
+        MedTree.right.right.left = new Node("Do you have/feel white spots?");
+        MedTree.right.right.right = new Node("Do you have/feel headache?");
+        MedTree.right.right.left.left = new Node("Do you have/feel bruises?");
+        MedTree.right.right.left.right = new Node("Do you have/feel swelling?");
+        MedTree.right.right.left.left.left = new Node("Do you have/feel bleeding?");
+        MedTree.right.right.left.left.left.left = new Node("You might have lichen sclerosus i.e. A chronic condition that causes thin, white patches of skin, usually in the genital area.")
+        MedTree.right.right.left.right.left = new Node("Do you have/feel weight loss?");
+        MedTree.right.right.left.right.left.left = new Node("Do you have/feel fever?");
+        MedTree.right.right.left.right.left.left.left = new Node("You might have Arthritis i.e. Inflammation of one or more joints, causing pain and stiffness that can worsen with age");
+        MedTree.right.right.left.right.left.right = new Node("Do you have/feel breathing problem?");
+        MedTree.right.right.left.right.left.right.left = new Node("Do you have/feel sneezing?");
+        MedTree.right.right.left.right.left.right.left.left = new Node("Do you have/feel eye irritation?");
+        MedTree.right.right.left.right.left.right.left.left.left = new Node("You might have allergies i.e. A condition in which the immune system reacts abnormally to a foreign substance. There different types of alergies such as drug allergy, food allergy,, latex, etc.");
+
         this.root = MedTree;
         this.nNode = MedTree;
     }
@@ -110,6 +154,7 @@ BST = new BinarySearchTree();
 let phase = 0;
 var count = 1;
 var keys = "";
+var response = "";
 button.addEventListener('click', function(e) {
 
     //fetching reply and viewing to the screen
@@ -172,19 +217,32 @@ button.addEventListener('click', function(e) {
     }
     if (phase == 2) {
         if (count == 1) {
-            html = `<div class="response-chat">${(personals.gender=="Male"?iniBST.getRootNode().left.data:iniBST.getRootNode().right.data)}</div>`;
-            div.innerHTML += html;
-            if (personals.gender == "Male") {
-                BST.setTempNode(BST.getRootNode().left);
-            } else {
-                BST.setTempNode(BST.getRootNode().right);
-            }
+            // html = `<div class="response-chat">${BST.getRootNode().data}</div>`;
+            response = BST.getRootNode().data;
+            BST.setTempNode(BST.getRootNode());
+            // div.innerHTML += html;
+            // if (personals.gender == "Male") {
+            //     BST.setTempNode(BST.getRootNode().left);
+            // } else {
+            //     BST.setTempNode(BST.getRootNode().right);
+            // }
             count++;
+        } else if (count == 0) {
+            if (reply == "Yes") {
+                count = 1;
+            } else {
+                response = "Thank You for using the app " + personals.name + ". Bye."
+                phase = 3
+            }
         } else {
             response = BST.traverseTree(reply);
             if (response == null) {
-                response = BST.getRootNode().data;
+                // response = BST.getRootNode().data;
                 BST.setTempNode(BST.getRootNode());
+                count = 0;
+                // html = `<div class="response-chat">${response}</div>`;
+                div.innerHTML += html;
+                response = "Do you want to take the test again";
             }
             //save checkpoint
         }
