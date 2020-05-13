@@ -1,4 +1,4 @@
-# simple-nodejs-weather-app
+# Medical ChatBot
 Simple Node.js Command Line Chatbot Application
 
 * To Run project *
