@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 
-const apiKey = '*****************';
+const apiKey = '7f0a8ccd238f4fbd9327aafab0ba171f';
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,17 +15,17 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
     let city = req.body.city;
-    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+    let url = `https://api.weatherbit.io/v2.0/current?city=${city}&key=${apiKey}`;
 
     request(url, function(err, response, body) {
         if (err) {
             res.render('index', { weather: null, error: 'Error, please try again' });
         } else {
             let weather = JSON.parse(body);
-            if (weather.main == undefined) {
-                res.render('index', { weather: null, error: 'Error, please try again' });
+            if (weather.data[0] == undefined) {
+                res.render('index', { weather: null, error: 'Error, please try again' + body });
             } else {
-                let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+                let weatherText = `It's ${weather.data[0].temp} degrees in ${weather.data[0].city_name}!`;
                 res.render('index', { weather: weatherText, error: null });
             }
         }

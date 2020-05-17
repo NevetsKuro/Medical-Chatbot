@@ -6,4 +6,6 @@ Simple Node.js Command Line Chatbot Application
  - npm start 
 ```
 // Now open your browser and visit: localhost:3000
+OR
+// 127.0.0.1:3000
 ```
